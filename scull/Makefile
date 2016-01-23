@@ -9,13 +9,14 @@ else
   DEBFLAGS = -O2
 endif
 
-CFLAGS += $(DEBFLAGS)
-CFLAGS += -I$(LDDINC)
+ccflags-y += $(DEBFLAGS)
+ccflags-y += -I$(LDDINC)
 
 ifneq ($(KERNELRELEASE),)
 # call from kernel build system
 
-scull-objs := main.o pipe.o access.o
+#scull-objs := main.o pipe.o access.o
+scull-objs := main.o
 
 obj-m	:= scull.o
 
